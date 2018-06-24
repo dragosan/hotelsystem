@@ -3,5 +3,4 @@ hotelmanagement/*.pyc
 hotelmanagement/.vscode
 hotelmanagement/controllers/*.pyc
 .vscode
-db.sqlite3
 *.pyc
