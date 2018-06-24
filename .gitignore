@@ -1,5 +1,4 @@
 hotelsenv/
-manage.py
 hotelmanagement/*.pyc
 hotelmanagement/.vscode
 hotelmanagement/controllers/*.pyc

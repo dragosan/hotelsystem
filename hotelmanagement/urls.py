@@ -19,11 +19,17 @@ from .views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',helloworld),
-    url(r'allhotels',hotellist),
+    url(r'^$',welcome),
+    url(r'reservation/',include('reservation.urls'))
+
+
+    #url(r'reservationlist',reservationsList)
+    #url(r'^$',helloworld),
+    #url(r'allhotels',hotellist),
     #url(r'index',index),
     #url(r'hotels_in_city/<city>',list_hotels_in_city),
-    url(r'reservationlist',reservationsList),
-    url(r'hotelincity',list_hotels_by_city)
+    
+    #url(r'hotelincity',list_hotels_by_city),
+    #url(r'reservation/',include('reservation.urls'))
     #url(r'',include('personal.urls'))
 ]

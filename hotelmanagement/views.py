@@ -1,17 +1,20 @@
 from django.http import HttpResponse
 
-from controllers.customer import *
+# code not used now after making new app reservation and add database to it
+
+
+""" from controllers.customer import *
 from controllers.hotel import *
 from controllers.main import *
 from controllers.notification import *
-from controllers.reservation import *
+from controllers.reservation import * """
 
 
-def welcome():
-    return '<h2>welcome to our system</h2>'
+def welcome(request):
+    return HttpResponse('<h2>welcome to our system</h2>')
 
 
-def helloworld(request):
+"""def helloworld(request):
     return HttpResponse('hello mostafa')
 
 
@@ -87,4 +90,4 @@ def reservationsList(request):
 
 
 def index(request):
-    return HttpResponse(hotellist)
+    return HttpResponse(hotellist) """
