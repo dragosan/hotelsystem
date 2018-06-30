@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+ Reservations
+
+{% endblock %}
+
+
+{% block content %}
+<h3> list of Reservations : </h3>
+<ol>
+{% for res in reservations %}
+<li> Reservation by customer {{ res.customer }} hotel {{ res.hotel }} , time {{ res.start_time }}  </li>
+{% endfor %}
+</ol>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+ Hotels in City
+
+{% endblock %}
+
+
+{% block content %}
+<h3> list of hotels in city : </h3>
+
+<ul> 
+{% for city in lstcity %}
+
+
+<li> {{ city }} </li>
+
+
+<ol>
+{% for h in hotels %}
+{% if h.hotel_city == city %}
+<li>{{ h }}</li>
+{% endif %}
+{% endfor %}
+</ol>
+{% endfor %}
+</ul>
+{% endblock %}

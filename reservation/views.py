@@ -13,35 +13,44 @@ from .models import Hotel,Customer,Reservation
 
 
 def welcometoapp(request):
-    return HttpResponse('<h2>you are in the app</h2>')
+    #return HttpResponse('<h2>you are in the app</h2>')
+    return render(request,"reservation/welcome.html")
 
 def showHotels(request):
-    allhotels="<ul>"
+    return render(request,"reservation/hotels.html",
+              {'allhotels':Hotel.objects.all()})
+
+
+
+    """ allhotels="<ul>"
     for hotel in Hotel.objects.all():
         allhotels+="<li>"+hotel.hotel_name+"</li>"
     allhotels+="</ul>"
-    return HttpResponse(allhotels)
+    return HttpResponse(allhotels) """
 
 def showHotelsInCity(request):
+
+    
     lstcity=[]
     for hotel in Hotel.objects.all():
         if(hotel.hotel_city not in lstcity):
             lstcity.append(hotel.hotel_city)
     output=""
+    lsthotelscity=[]
+    lst=[]
     for city in lstcity:
-        output+="<h3> hotels in city of "+city+"</h3><ul>"
+                      
         for hc in Hotel.objects.all():
+            
             if(hc.hotel_city==city):
-                output+="<li>"+hc.hotel_name+"</li>"
-        output+="</ul>"
-    return HttpResponse(output)
+                lst.append(hc)
+            lsthotelscity.append(lst)        
+        
+    
+    return render(request,'reservation/hotelsincity.html',{'lstcity':lstcity,'hotels':Hotel.objects.all()})
 
 def showReservationslist(request):
-    output="<h2>Reservations : </h2><ul>"
-    for res in Reservation.objects.all():
-        output+="<li>"+res.__str__()+"</li>"
-    output+="</ul>"
-    return HttpResponse(output)
+    return render(request,"reservation/reservation.html",{'reservations':Reservation.objects.all()})
 
 
 
